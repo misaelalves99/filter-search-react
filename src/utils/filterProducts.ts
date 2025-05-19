@@ -18,6 +18,3 @@ export const filterProductsByName = (products: Product[], name: string): Product
 export const filterProductsByCategory = (products: Product[], category: string): Product[] => {
   return products.filter((product) => product.category.toLowerCase() === category.toLowerCase());
 };
-
-// 02-Funções e Métodos -
-// 03-Arrays -

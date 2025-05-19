@@ -1,7 +1,7 @@
 // src/components/CategoryList.tsx
 
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Usando React Router para navegação
+import { useNavigate } from 'react-router-dom';
 import styles from './CategoryList.module.css';
 
 interface CategoryListProps {
@@ -10,11 +10,11 @@ interface CategoryListProps {
 }
 
 const CategoryList: React.FC<CategoryListProps> = ({ categories, onCategorySelect }) => {
-  const navigate = useNavigate(); // Definindo o hook 'useNavigate' aqui
+  const navigate = useNavigate();
 
   const handleCategorySelect = (category: string) => {
-    onCategorySelect(category); // Chama o callback do pai (se necessário)
-    navigate(`/products/${category}`); // Navega para a página de categoria selecionada
+    onCategorySelect(category);
+    navigate(`/products/${category}`);
   };
 
   return (
@@ -22,7 +22,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories, onCategorySelec
       {categories.map((category) => (
         <button
           key={category}
-          onClick={() => handleCategorySelect(category)} // Usando a navegação dentro da função
+          onClick={() => handleCategorySelect(category)}
           className={styles.categoryButton}
         >
           {category}

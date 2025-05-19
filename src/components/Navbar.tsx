@@ -1,11 +1,10 @@
 // src/components/Navbar.tsx
 
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // Usando react-router-dom para navegação
+import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
-  // 06 - Pathname atual para renderização condicional
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState<string>('');
 
@@ -17,7 +16,6 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={styles.navbar}>
-      {/* 01 - Logo e navegação */}
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
           E-Commerce

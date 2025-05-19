@@ -6,7 +6,7 @@ import SearchFilter from "./SearchFilter";
 import styles from "./ProductList.module.css";
 
 interface ProductListProps {
-  products: Product[]; // Aceitando a lista de produtos diretamente
+  products: Product[];
   enableFilterUI?: boolean;
   enableBuyNow?: boolean;
   title?: string;
@@ -30,30 +30,25 @@ const ProductList: React.FC<ProductListProps> = ({
     setCategories(allCategories);
   }, [products]);
 
-  // Função para filtrar os produtos com base na pesquisa, categoria e faixa de preço
   const handleSearch = () => {
     let filtered = products;
 
-    // Filtro por pesquisa
     if (searchQuery) {
       filtered = filtered.filter((product) =>
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
 
-    // Filtro por categoria
     if (minPrice || maxPrice) {
       filtered = filtered.filter(
         (product) => product.price >= minPrice && product.price <= maxPrice
       );
     }
 
-    // Atualiza os produtos filtrados
     setFilteredProducts(filtered);
   };
 
   const handleCategoryChange = (selectedCategory: string) => {
-    // Atualiza a lista de produtos filtrados com base na categoria
     const filtered = products.filter((product) =>
       selectedCategory === "todos"
         ? true
@@ -72,13 +67,13 @@ const ProductList: React.FC<ProductListProps> = ({
             <SearchFilter
               categories={categories}
               products={products}
-              onCategoryChange={handleCategoryChange} // Passando a função de categoria
+              onCategoryChange={handleCategoryChange}
               onPriceRangeChange={(min, max) => {
                 setMinPrice(Number(min));
                 setMaxPrice(Number(max));
                 handleSearch();
               }}
-              onSearch={handleSearch} // Passando a função de filtro
+              onSearch={handleSearch}
             />
           </div>
         </>

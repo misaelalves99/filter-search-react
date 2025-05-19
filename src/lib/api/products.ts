@@ -3,7 +3,6 @@
 import { Product } from '../../types/product';
 
 export async function getProducts(): Promise<Product[]> {
-  // ✅ Simula uma requisição a um banco de dados ou API
   return [
     {
       id: 1,

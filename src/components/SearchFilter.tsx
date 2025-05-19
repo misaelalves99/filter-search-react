@@ -7,7 +7,7 @@ import styles from './SearchFilter.module.css';
 interface SearchFilterProps {
   products: Product[];
   categories: string[];
-  onSearch: (filteredProducts: Product[]) => void; // Espera um array de produtos filtrados
+  onSearch: (filteredProducts: Product[]) => void;
   onCategoryChange?: (category: string) => void;
   onPriceRangeChange?: (category: string, min: number, max: number) => void;
 }
@@ -43,7 +43,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
       );
     }
 
-    onSearch(filtered); // Passa os produtos filtrados
+    onSearch(filtered);
 
     if (onCategoryChange) onCategoryChange(selectedCategory);
     if (onPriceRangeChange) onPriceRangeChange(selectedCategory, minPrice, maxPrice);

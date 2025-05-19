@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FaCartPlus, FaHeart } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // Alterado para useNavigate do react-router-dom
+import { useNavigate } from "react-router-dom";
 import { Product } from "../types/product";
 import styles from "./ProductCard.module.css";
 
@@ -13,10 +13,10 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onBuyNow, enableBuyNow }) => {
-  const navigate = useNavigate(); // useNavigate do react-router-dom
+  const navigate = useNavigate();
 
   const goToProduct = () => {
-    navigate(`/products/${product.id}`); // Navegação usando react-router-dom
+    navigate(`/products/${product.id}`);
   };
 
   return (
@@ -54,7 +54,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onBuyNow, enableBuyN
           <button
             className={styles.cartButton}
             onClick={() => {
-              /* lógica de adicionar ao carrinho removida */
             }}
             title="Adicionar ao carrinho"
           >

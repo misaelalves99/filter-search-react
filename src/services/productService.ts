@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { Product } from '../types/product';
 
-// URL do backend onde a API de produtos está exposta
-const API_URL = 'http://localhost:5000/api/products'; // Substitua pela URL real do seu backend
+const API_URL = 'http://localhost:5000/api/products';
 
-// 02-Funções e Métodos - Funções utilitárias para mocks
 const fallbackProducts: Product[] = [
   {
     id: 1,
@@ -78,15 +76,12 @@ const fallbackProducts: Product[] = [
   },
 ];
 
-// 02-Funções e Métodos - Funções para manipulação de produtos
-
 export const getProductsFromApi = async (): Promise<Product[]> => {
   try {
     const response = await axios.get(`${API_URL}`);
-    return response.data; // Supondo que a API retorne um array de produtos
+    return response.data;
   } catch (error) {
     console.error('Erro ao buscar produtos na API:', error);
-    // Retorna mock em caso de erro
     return [...fallbackProducts];
   }
 };
@@ -94,7 +89,7 @@ export const getProductsFromApi = async (): Promise<Product[]> => {
 export const getProductByIdFromApi = async (id: number): Promise<Product | null> => {
   try {
     const response = await axios.get(`${API_URL}/${id}`);
-    return response.data; // Supondo que a API retorne o produto específico
+    return response.data;
   } catch (error) {
     console.error('Erro ao buscar produto pelo ID na API:', error);
     return null;
@@ -104,7 +99,7 @@ export const getProductByIdFromApi = async (id: number): Promise<Product | null>
 export const createProductInApi = async (data: Product): Promise<Product> => {
   try {
     const response = await axios.post(`${API_URL}`, data);
-    return response.data; // Retorna o produto criado
+    return response.data;
   } catch (error) {
     console.error('Erro ao criar produto na API:', error);
     throw new Error('Erro ao criar produto');
@@ -114,7 +109,7 @@ export const createProductInApi = async (data: Product): Promise<Product> => {
 export const updateProductInApi = async (id: number, data: Partial<Product>): Promise<Product> => {
   try {
     const response = await axios.put(`${API_URL}/${id}`, data);
-    return response.data; // Retorna o produto atualizado
+    return response.data;
   } catch (error) {
     console.error('Erro ao atualizar produto na API:', error);
     throw new Error('Erro ao atualizar produto');
@@ -130,7 +125,6 @@ export const deleteProductFromApi = async (id: number): Promise<void> => {
   }
 };
 
-// 04-Objetos - Retorno dos produtos ou erro
 export const getProducts = async (): Promise<Product[]> => {
   return new Promise((resolve) => setTimeout(() => resolve([...fallbackProducts]), 500));
 };

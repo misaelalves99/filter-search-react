@@ -28,7 +28,7 @@ const ProductListFilter: React.FC<ProductListFilterProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetched = await getProducts(); // Função que busca os produtos da API
+        const fetched = await getProducts();
         setProducts(fetched);
 
         const allCategories = Array.from(
@@ -43,12 +43,10 @@ const ProductListFilter: React.FC<ProductListFilterProps> = ({
     fetchData();
   }, [setProducts]);
 
-  // Função para filtrar os produtos
   const handleSearch = (filteredProducts: Product[]) => {
     setProducts(filteredProducts);
   };
 
-  // Filtro de produtos com base na categoria
   const filtered = products.filter((product) =>
     categoryFilter ? product.category === categoryFilter : true
   );
