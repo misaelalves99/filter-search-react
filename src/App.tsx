@@ -1,16 +1,15 @@
 // src/App.tsx
 
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { ProductProvider } from './context/ProductContext';
+import ProductProvider from './context/ProductProvider';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import SearchPage from './pages/SearchPage';
 import FilterPage from './pages/FilterPage';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <BrowserRouter>
       <ProductProvider>

@@ -24,7 +24,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(1000);
 
-  const filterProducts = () => {
+  useEffect(() => {
     let filtered = products;
 
     if (searchTerm) {
@@ -47,11 +47,7 @@ const SearchFilter: React.FC<SearchFilterProps> = ({
 
     if (onCategoryChange) onCategoryChange(selectedCategory);
     if (onPriceRangeChange) onPriceRangeChange(selectedCategory, minPrice, maxPrice);
-  };
-
-  useEffect(() => {
-    filterProducts();
-  }, [searchTerm, selectedCategory, minPrice, maxPrice]);
+  }, [products, searchTerm, selectedCategory, minPrice, maxPrice, onSearch, onCategoryChange, onPriceRangeChange]);
 
   return (
     <div className={styles.searchFilterContainer}>
